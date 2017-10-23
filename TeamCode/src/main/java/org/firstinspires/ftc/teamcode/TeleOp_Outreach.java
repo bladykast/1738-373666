@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "3736: TeleOp", group = "TeleOp")
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "Outreach Bot TeleOp", group = "TeleOp")
 
 public class TeleOp_Outreach extends OpMode {
 
