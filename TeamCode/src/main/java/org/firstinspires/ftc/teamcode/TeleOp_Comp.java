@@ -5,9 +5,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
-import com.qualcomm.robotcore.hardware.
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "3736: TeleOp", group = "TeleOp")
 public class TeleOp_Comp extends OpMode {
@@ -15,25 +13,19 @@ public class TeleOp_Comp extends OpMode {
 
 	final static double JEWEL_MIN_RANGE  = 0;
 	final static double JEWEL_MAX_RANGE  = 1;
-	final static double GLYPH_MIN_RANGE  = 0;
-	final static double GLYPH_MAX_RANGE  = 1;
 
 
+	//double jewelPosition;
 
-	double jewelPosition;
-	double glyphPosition;
+	//double jewelDelta = 0.1;
 
-	double jewelDelta = 0.1;
-	double glyphDelta = 0.1;
-
-	DcMotor lift;
+	//DcMotor basket;
 	DcMotor strafe;
 	DcMotor rightSideFront;
 	DcMotor rightSideBack;
 	DcMotor leftSideFront;
 	DcMotor leftSideBack;
-	Servo jewel;
-	Servo glyph;
+	//Servo jewel;
 
 
 	public TeleOp_Comp() {
@@ -48,20 +40,15 @@ public class TeleOp_Comp extends OpMode {
 		rightSideBack = hardwareMap.dcMotor.get("MRB");
 		leftSideFront = hardwareMap.dcMotor.get("MLF");
 		leftSideBack = hardwareMap.dcMotor.get("MLB");
-		lift = hardwareMap.dcMotor.get("LFT");
 
-		lift.setDirection(DcMotor.Direction.FORWARD);
 		rightSideFront.setDirection(DcMotor.Direction.FORWARD);
 		rightSideBack.setDirection(DcMotor.Direction.REVERSE);
 		leftSideFront.setDirection(DcMotor.Direction.REVERSE);
 		leftSideBack.setDirection(DcMotor.Direction.FORWARD);
 		strafe.setDirection(DcMotor.Direction.FORWARD);
-		jewel = hardwareMap.servo.get("JWL");
-		glyph = hardwareMap.servo.get("GLY");
+		//jewel = hardwareMap.servo.get("jewel");
 
-		jewelPosition = 1;
-		glyphPosition = 0.1;
-
+		//jewelPosition = 0.1;
 	}
 
 	public void loop()
@@ -88,7 +75,6 @@ public class TeleOp_Comp extends OpMode {
 		leftSideBack.setPower(y1);
 		rightSideFront.setPower(y2);
 		rightSideBack.setPower(y2);
-		lift.setPower(y3);
 
 		if (gamepad1.dpad_left)
 		{
@@ -101,37 +87,25 @@ public class TeleOp_Comp extends OpMode {
 		else strafe.setPower(0);
 
 
-		if (gamepad2.b)
-	    {
-		    jewelPosition += jewelDelta;
-	    }
 
-		if (gamepad2.y)
-		{
-			jewelPosition -= jewelDelta;
-		}
+		//if (gamepad1.a)
+		//{
+		//	jewelPosition += jewelDelta;
+		//}
 
-		if (gamepad2.x)
-		{
-			glyphPosition += glyphDelta;
-		}
-
-		if (gamepad2.a)
-		{
-			glyphPosition -= glyphDelta;
-		}
+		//if (gamepad1.y)
+		//{
+		//	jewelPosition -= jewelDelta;
+		//}
 
 
 
-		jewelPosition = Range.clip(jewelPosition, JEWEL_MIN_RANGE, JEWEL_MAX_RANGE);
-        glyphPosition = Range.clip(glyphPosition, GLYPH_MIN_RANGE, GLYPH_MAX_RANGE);
+		//jewelPosition = Range.clip(jewelPosition, JEWEL_MIN_RANGE, JEWEL_MAX_RANGE);
 
-		jewel.setPosition(jewelPosition);
-        glyph.setPosition(glyphPosition);
+		//jewel.setPosition(jewelPosition);
 
 		telemetry.addData("Text", "*** Robot Data***");
-		telemetry.addData("jewel", "jewel:  " + String.format("%.2f", jewelPosition));
-        telemetry.addData("glyph", "glyph:  " + String.format("%.2f", glyphPosition));
+		//telemetry.addData("jewel", "jewel:  " + String.format("%.2f", jewelPosition));
 	}
 
 
