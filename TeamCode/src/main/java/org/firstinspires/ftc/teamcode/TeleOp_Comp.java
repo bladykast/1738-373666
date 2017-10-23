@@ -48,6 +48,7 @@ public class TeleOp_Comp extends OpMode {
 		leftSideFront = hardwareMap.dcMotor.get("MLF");
 		leftSideBack = hardwareMap.dcMotor.get("MLB");
 		lift = hardwareMap.dcMotor.get("LFT");
+        //thing
 
 		lift.setDirection(DcMotor.Direction.FORWARD);
 		rightSideFront.setDirection(DcMotor.Direction.FORWARD);
